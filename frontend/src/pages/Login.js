@@ -10,14 +10,18 @@ const Login = ({ setUserId }) => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:5000/api/users/login', { email });
+  
+      const { _id, username } = response.data.user;
       alert('Login successful!');
-      localStorage.setItem('userId', response.data.user._id); // Store user ID in local storage
-      setUserId(response.data.user._id); // Update state
-      navigate('/');
+      
+      localStorage.setItem('userId', _id);
+      localStorage.setItem('username', username);  // Store username
+      setUserId(_id);
     } catch (error) {
       console.error('Error logging in:', error);
     }
   };
+  
 
   return (
     <form onSubmit={handleSubmit}>

@@ -6,20 +6,20 @@ const letterRoutes = require('./routes/letterRoutes');
 
 const app = express();
 
-// Middleware
+// middleware
 app.use(cors());
-app.use(express.json()); // Parse JSON request bodies
+app.use(express.json()); // parse JSON request bodies
 
-// Routes
+// routes
 app.use('/api/users', userRoutes);
 app.use('/api/letters', letterRoutes);
 
-// Connect to MongoDB
+// connect to MongoDB
 mongoose.connect('mongodb://localhost:27017/eletter')
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.error('Failed to connect to MongoDB', err));
 
-// Start the server
+// start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
