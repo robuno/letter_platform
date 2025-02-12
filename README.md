@@ -1,0 +1,3 @@
+- logout
+- login register w password
+- register: name, date of birth
