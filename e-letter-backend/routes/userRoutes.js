@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 
-// 🟢 REGISTER a new user
+// REGISTER a new user
 router.post('/register', async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -19,7 +19,7 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// 🟢 LOGIN a user
+// LOGIN a user
 router.post('/login', async (req, res) => {
   try {
     const { email } = req.body;
@@ -33,7 +33,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// 🟢 GET USERNAME by user ID
+// GET USERNAME by user ID
 router.get('/:id', async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
