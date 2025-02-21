@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Profile from './pages/Profile'; // Import Profile page
 
 const App = () => {
-  const [userId, setUserId] = useState(null); // State to store the logged-in user's ID
-
   return (
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home userId={userId} />} />
-        <Route path="/login" element={<Login setUserId={setUserId} />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/profile" element={<Profile />} /> {/* Profile Route */}
       </Routes>
     </Router>
   );
