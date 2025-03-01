@@ -16,9 +16,9 @@ const Home = () => {
     if (storedUserId) {
       setUserId(storedUserId);
       if (storedUsername) {
-        setUsername(storedUsername);
+        setUsername(storedUsername);    // get from cache
       } else {
-        fetchUsername(storedUserId);
+        fetchUsername(storedUserId);    // api call
       }
     }
     }, []);
