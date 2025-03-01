@@ -15,14 +15,13 @@ const Home = () => {
 
     if (storedUserId) {
       setUserId(storedUserId);
-
       if (storedUsername) {
         setUsername(storedUsername);
       } else {
         fetchUsername(storedUserId);
       }
     }
-  }, []);
+    }, []);
 
   const fetchUsername = async (id) => {
     try {
@@ -32,7 +31,7 @@ const Home = () => {
     } catch (error) {
       console.error('Error fetching username:', error);
     }
-  };
+    };
 
   const handleLogout = () => {
     // Clear localStorage
